@@ -1,0 +1,634 @@
+{
+	"id": "ef2d7f14-4583-4ce9-b50d-3f86a8486dba",
+	"name": "Magento2",
+	"allTests": [],
+	"timestamp": "2019-05-23T13:44:05.113Z",
+	"collection_id": "ac08740c-f68f-4b28-a414-42d85259710b",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "e6d1bc3c-aed2-4eae-a99d-034faead7f79",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "ac08740c-f68f-4b28-a414-42d85259710b",
+		"name": "Magento2",
+		"description": "",
+		"auth": null,
+		"events": [
+			{
+				"listen": "prerequest",
+				"script": {
+					"id": "fd7598ad-1903-4047-810c-43a35f640b81",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			},
+			{
+				"listen": "test",
+				"script": {
+					"id": "4c4699a9-bf28-4970-8539-fabe84ea60b9",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			}
+		],
+		"variables": [
+			{
+				"key": "loginToken",
+				"value": "",
+				"enabled": true
+			}
+		],
+		"order": [
+			"96f3b463-0e56-4efb-93d2-f8d2f6b075d6",
+			"2cdc4eb3-534c-4ee0-ab49-5b5e65c37e18",
+			"93e77c64-a9d2-487a-9da6-858071fab251",
+			"85612eb7-02da-46c8-8620-d71f638037af",
+			"591d9e87-3203-4750-bf54-5052a5ce5946",
+			"e0b35a33-669c-4e54-afbe-57d2f4a04cef",
+			"233354c2-0c31-4d36-815f-54eaab4bcfb9",
+			"34ab3524-7e80-4a7b-a9f0-a2168bb76b3c"
+		],
+		"folders_order": [],
+		"owner": "1934362",
+		"favorite": false,
+		"isFavorite": true,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"key": "loginToken",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "Login",
+			"id": "96f3b463-0e56-4efb-93d2-f8d2f6b075d6",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/integration/customer/token",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"4016"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			],
+			"time": "4016",
+			"totalRequestTime": "4016",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create empty cart - authenticated user",
+			"id": "2cdc4eb3-534c-4ee0-ab49-5b5e65c37e18",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"14555"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			],
+			"time": "14555",
+			"totalRequestTime": "14555",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add product to cart - authenticated user",
+			"id": "93e77c64-a9d2-487a-9da6-858071fab251",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine/items",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body contains cart quote": true,
+				"Cart ID is correct": true,
+				"Cart quote is string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains cart quote": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cart ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cart quote is string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"13475"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body contains cart quote": true,
+					"Cart ID is correct": true,
+					"Cart quote is string": true
+				}
+			],
+			"time": "13475",
+			"totalRequestTime": "13475",
+			"iterationResults": {}
+		},
+		{
+			"name": "Retrieve cart - authenticated user",
+			"id": "85612eb7-02da-46c8-8620-d71f638037af",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body contains added product": true,
+				"Check cart id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains added product": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check cart id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"3686"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body contains added product": true,
+					"Check cart id": true
+				}
+			],
+			"time": "3686",
+			"totalRequestTime": "3686",
+			"iterationResults": {}
+		},
+		{
+			"name": "Retrieve product data - any user",
+			"id": "591d9e87-3203-4750-bf54-5052a5ce5946",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/products-render-info?storeId=1&currencyCode=USD&searchCriteria[filterGroups][0][filters][0][conditionType]=in&searchCriteria[filterGroups][0][filters][0][field]=name&searchCriteria[filterGroups][0][filters][0][value]=Simple Product Machine",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Currency code is correct": true,
+				"Store id is correct": true,
+				"Name of product is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Currency code is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Store id is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name of product is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"1842"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Currency code is correct": true,
+					"Store id is correct": true,
+					"Name of product is correct": true
+				}
+			],
+			"time": "1842",
+			"totalRequestTime": "1842",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create cart - guest user",
+			"id": "e0b35a33-669c-4e54-afbe-57d2f4a04cef",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"812"
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			],
+			"time": "812",
+			"totalRequestTime": "812",
+			"iterationResults": {}
+		},
+		{
+			"name": "Add product to cart - guest user",
+			"id": "233354c2-0c31-4d36-815f-54eaab4bcfb9",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/cf89TsPWh8NyuCZk3LDIB3gKifN3iB5W/items",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body contains cart quote": true,
+				"Product name is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains cart quote": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product name is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"1600"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body contains cart quote": true,
+					"Product name is correct": true
+				}
+			],
+			"time": "1600",
+			"totalRequestTime": "1600",
+			"iterationResults": {}
+		},
+		{
+			"name": "Retrieve cart - guest user",
+			"id": "34ab3524-7e80-4a7b-a9f0-a2168bb76b3c",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/tIFECSVeWpFluMcKoU2BhDyaf5WijM8Y",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Cart ID is correct": true,
+				"Body contains added product": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cart ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains added product": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"1200"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Cart ID is correct": true,
+					"Body contains added product": true
+				}
+			],
+			"time": "1200",
+			"totalRequestTime": "1200",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 20,
+	"totalFail": 0,
+	"totalTime": 41186,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Login",
+			"id": "96f3b463-0e56-4efb-93d2-f8d2f6b075d6",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/integration/customer/token",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create empty cart - authenticated user",
+			"id": "2cdc4eb3-534c-4ee0-ab49-5b5e65c37e18",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add product to cart - authenticated user",
+			"id": "93e77c64-a9d2-487a-9da6-858071fab251",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine/items",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains cart quote": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cart ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cart quote is string": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Retrieve cart - authenticated user",
+			"id": "85612eb7-02da-46c8-8620-d71f638037af",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains added product": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check cart id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Retrieve product data - any user",
+			"id": "591d9e87-3203-4750-bf54-5052a5ce5946",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/products-render-info?storeId=1&currencyCode=USD&searchCriteria[filterGroups][0][filters][0][conditionType]=in&searchCriteria[filterGroups][0][filters][0][field]=name&searchCriteria[filterGroups][0][filters][0][value]=Simple Product Machine",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Currency code is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Store id is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name of product is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create cart - guest user",
+			"id": "e0b35a33-669c-4e54-afbe-57d2f4a04cef",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Add product to cart - guest user",
+			"id": "233354c2-0c31-4d36-815f-54eaab4bcfb9",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/cf89TsPWh8NyuCZk3LDIB3gKifN3iB5W/items",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains cart quote": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product name is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Retrieve cart - guest user",
+			"id": "34ab3524-7e80-4a7b-a9f0-a2168bb76b3c",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/tIFECSVeWpFluMcKoU2BhDyaf5WijM8Y",
+			"time": "2019-05-23T13:44:05.113Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cart ID is correct": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains added product": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}

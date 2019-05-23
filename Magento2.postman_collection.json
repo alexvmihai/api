@@ -1,0 +1,556 @@
+{
+	"info": {
+		"_postman_id": "ac08740c-f68f-4b28-a414-42d85259710b",
+		"name": "Magento2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b3ef295c-0c4e-41c1-b9b1-7e2ebd6bf1be",
+						"exec": [
+							"\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});\r",
+							"\r",
+							"var token = JSON.parse(responseBody);\r",
+							"pm.environment.set('loginToken', token);\r",
+							"\r",
+							"console.log(pm.environment.get('loginToken'));\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body is not null\", function () {\r",
+							"    pm.expect(responseBody).to.not.be.null;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/rest/V1/integration/customer/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"integration",
+						"customer",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create empty cart - authenticated user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "55f97b0c-c385-47c2-b667-7ff7b0c43974",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"});",
+							"",
+							"",
+							"var token = JSON.parse(responseBody);",
+							"pm.environment.set('cartID', token);",
+							"",
+							"pm.test(\"Response body is not null\", function () {",
+							"    pm.expect(responseBody).to.not.be.null;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{loginToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/rest/V1/carts/mine",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"carts",
+						"mine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product to cart - authenticated user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a3f25a9-7e54-41ae-9e53-00ef269b5286",
+						"exec": [
+							"console.log(pm.globals.get('loginToken'));",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is not null\", function () {",
+							"    pm.expect(responseBody).to.not.be.null;",
+							"});",
+							"",
+							"pm.test(\"Body contains cart quote\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"quote_id\");",
+							"});",
+							"",
+							"pm.test(\"Cart ID is correct\", function () {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    pm.expect(parseInt(jsonData.quote_id)).to.equal(parseInt(pm.environment.get(\"cartID\")));",
+							"});",
+							"",
+							"pm.test(\"Cart quote is string\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData.quote_id).to.be.a('string');",
+							"    ",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{loginToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{lo",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cartItem\": {\r\n    \"sku\": \"{{product}}\",\r\n    \"qty\": 1,\r\n    \"quote_id\": \"39\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/rest/V1/carts/mine/items",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"carts",
+						"mine",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve cart - authenticated user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa601748-5054-4366-b39c-26ed507aeff0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is not null\", function () {",
+							"    pm.expect(responseBody).to.not.be.null;",
+							"});",
+							"",
+							"pm.test(\"Body contains added product\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    // Find the array index for the product name",
+							"    var productNameIndex = jsonData.items.map(",
+							"    function(items) {",
+							"    return items.name; // <-- HERE is the name of the property",
+							"    }",
+							"    ).indexOf(pm.environment.get('product')); // <-- HERE is the value we are searching for",
+							"    // Get the product name object by using the index calculated above",
+							"    var productName = jsonData.items[productNameIndex];",
+							"    // Check that the product name exists",
+							"    pm.expect(productName).to.exist;",
+							"    console.log(productNameIndex);",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"Check cart id\", function (){",
+							"   var jsonData = pm.response.json();",
+							"   console.log(jsonData.id);",
+							"   console.log(pm.environment.get('cartID'));",
+							"   pm.expect(jsonData.id).to.equal(parseInt(pm.environment.get('cartID')));",
+							"   ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{loginToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/rest/V1/carts/mine",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"carts",
+						"mine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve product data - any user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "736d7d23-2acd-43b7-bd93-cb10a65a6454",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is not null\", function () {",
+							"    pm.expect(responseBody).to.not.be.null;",
+							"});",
+							"",
+							"pm.test(\"Currency code is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var receivedCode = jsonData.items[0].currency_code;",
+							"    ",
+							"    // Check that the currency code is correct",
+							"    pm.expect(receivedCode).to.equal(pm.environment.get('currencyCode'));",
+							"    console.log(receivedCode);",
+							"});",
+							"",
+							"pm.test(\"Store id is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var receivedID = jsonData.items[0].store_id;",
+							"    ",
+							"    // Check that the currency code exists",
+							"    pm.expect(receivedID).to.equal(parseInt(pm.environment.get('storeID')));",
+							"    console.log(receivedID);",
+							"});",
+							"",
+							"pm.test(\"Name of product is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var receivedName = jsonData.items[0].name;",
+							"    ",
+							"    // Check that the currency code is correct",
+							"    pm.expect(receivedName).to.equal(pm.environment.get('product2'));",
+							"    console.log(receivedName);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/rest/V1/products-render-info?storeId={{storeID}}&currencyCode={{currencyCode}}&searchCriteria[filterGroups][0][filters][0][conditionType]=in&searchCriteria[filterGroups][0][filters][0][field]=name&searchCriteria[filterGroups][0][filters][0][value]={{product2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"products-render-info"
+					],
+					"query": [
+						{
+							"key": "storeId",
+							"value": "{{storeID}}"
+						},
+						{
+							"key": "currencyCode",
+							"value": "{{currencyCode}}"
+						},
+						{
+							"key": "searchCriteria[filterGroups][0][filters][0][conditionType]",
+							"value": "in"
+						},
+						{
+							"key": "searchCriteria[filterGroups][0][filters][0][field]",
+							"value": "name"
+						},
+						{
+							"key": "searchCriteria[filterGroups][0][filters][0][value]",
+							"value": "{{product2}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create cart - guest user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "afdc472a-b635-42b3-bdff-d13b0169d5fb",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"});",
+							"",
+							"",
+							"var token = JSON.parse(responseBody);",
+							"pm.environment.set('guestCartToken', token);",
+							"",
+							"pm.test(\"Response body is not null\", function () {",
+							"    pm.expect(responseBody).to.not.be.null;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/rest/V1/guest-carts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"guest-carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product to cart - guest user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe695a7f-8872-4463-b4e1-69bad88e41b4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is not null\", function () {",
+							"    pm.expect(responseBody).to.not.be.null;",
+							"});",
+							"",
+							"pm.test(\"Body contains cart quote\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"quote_id\");",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    pm.environment.set(\"guestCartID\", jsonData.quote_id);",
+							"    console.log(jsonData.quote_id);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Product name is correct\", function () {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    pm.expect(jsonData.name).to.equal(pm.environment.get(\"product\"));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cartItem\": {\r\n    \"sku\": \"{{product}}\",\r\n    \"qty\": \"{{qty}}\",\r\n    \"quote_id\": \"{{guestCartToken}}\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/rest/V1/guest-carts/cf89TsPWh8NyuCZk3LDIB3gKifN3iB5W/items",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"guest-carts",
+						"cf89TsPWh8NyuCZk3LDIB3gKifN3iB5W",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve cart - guest user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "74b11d2c-d67e-404f-b926-07243aaae2d2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is not null\", function () {",
+							"    pm.expect(responseBody).to.not.be.null;",
+							"});",
+							"",
+							"pm.test(\"Cart ID is correct\", function () {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    pm.expect(jsonData.id).to.equal(parseInt(pm.environment.get(\"guestCartID\")));",
+							"});",
+							"",
+							"",
+							"pm.test(\"Body contains added product\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    // Find the array index for the product name",
+							"    var productNameIndex = jsonData.items.map(",
+							"    function(items) {",
+							"    return items.name; // <-- HERE is the name of the property",
+							"    }",
+							"    ).indexOf(pm.environment.get('product')); // <-- HERE is the value we are searching for",
+							"    // Get the product name object by using the index calculated above",
+							"    var productName = jsonData.items[productNameIndex];",
+							"    // Check that the product name exists",
+							"    pm.expect(productName).to.exist;",
+							"    console.log(productNameIndex);",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/rest/V1/guest-carts/{{guestCartToken}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"rest",
+						"V1",
+						"guest-carts",
+						"{{guestCartToken}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fd7598ad-1903-4047-810c-43a35f640b81",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4c4699a9-bf28-4970-8539-fabe84ea60b9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d044eab0-a1ea-414a-8c01-be4ba25a7393",
+			"key": "loginToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
