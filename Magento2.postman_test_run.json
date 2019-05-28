@@ -1,8 +1,8 @@
 {
-	"id": "ef2d7f14-4583-4ce9-b50d-3f86a8486dba",
+	"id": "8b126795-9a3e-4535-818e-07dbce49e8e7",
 	"name": "Magento2",
 	"allTests": [],
-	"timestamp": "2019-05-23T13:44:05.113Z",
+	"timestamp": "2019-05-24T08:49:17.644Z",
 	"collection_id": "ac08740c-f68f-4b28-a414-42d85259710b",
 	"folder_id": 0,
 	"target_type": "collection",
@@ -85,24 +85,30 @@
 				}
 			},
 			"tests": {
-				"Successful POST request": true
+				"Successful POST request": true,
+				"Response body is not null": true
 			},
 			"testPassFailCounts": {
 				"Successful POST request": {
 					"pass": 1,
 					"fail": 0
+				},
+				"Response body is not null": {
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				"4016"
+				"4429"
 			],
 			"allTests": [
 				{
-					"Successful POST request": true
+					"Successful POST request": true,
+					"Response body is not null": true
 				}
 			],
-			"time": "4016",
-			"totalRequestTime": "4016",
+			"time": "4429",
+			"totalRequestTime": "4429",
 			"iterationResults": {}
 		},
 		{
@@ -119,24 +125,30 @@
 				}
 			},
 			"tests": {
-				"Successful POST request": true
+				"Successful POST request": true,
+				"Response body is not null": true
 			},
 			"testPassFailCounts": {
 				"Successful POST request": {
 					"pass": 1,
 					"fail": 0
+				},
+				"Response body is not null": {
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				"14555"
+				"23583"
 			],
 			"allTests": [
 				{
-					"Successful POST request": true
+					"Successful POST request": true,
+					"Response body is not null": true
 				}
 			],
-			"time": "14555",
-			"totalRequestTime": "14555",
+			"time": "23583",
+			"totalRequestTime": "23583",
 			"iterationResults": {}
 		},
 		{
@@ -154,6 +166,7 @@
 			},
 			"tests": {
 				"Status code is 200": true,
+				"Response body is not null": true,
 				"Body contains cart quote": true,
 				"Cart ID is correct": true,
 				"Cart quote is string": true
@@ -163,6 +176,10 @@
 					"pass": 1,
 					"fail": 0
 				},
+				"Response body is not null": {
+					"pass": 1,
+					"fail": 0
+				},
 				"Body contains cart quote": {
 					"pass": 1,
 					"fail": 0
@@ -177,18 +194,19 @@
 				}
 			},
 			"times": [
-				"13475"
+				"23592"
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
+					"Response body is not null": true,
 					"Body contains cart quote": true,
 					"Cart ID is correct": true,
 					"Cart quote is string": true
 				}
 			],
-			"time": "13475",
-			"totalRequestTime": "13475",
+			"time": "23592",
+			"totalRequestTime": "23592",
 			"iterationResults": {}
 		},
 		{
@@ -206,11 +224,16 @@
 			},
 			"tests": {
 				"Status code is 200": true,
+				"Response body is not null": true,
 				"Body contains added product": true,
 				"Check cart id": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -224,17 +247,18 @@
 				}
 			},
 			"times": [
-				"3686"
+				"6246"
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
+					"Response body is not null": true,
 					"Body contains added product": true,
 					"Check cart id": true
 				}
 			],
-			"time": "3686",
-			"totalRequestTime": "3686",
+			"time": "6246",
+			"totalRequestTime": "6246",
 			"iterationResults": {}
 		},
 		{
@@ -252,6 +276,7 @@
 			},
 			"tests": {
 				"Status code is 200": true,
+				"Response body is not null": true,
 				"Currency code is correct": true,
 				"Store id is correct": true,
 				"Name of product is correct": true
@@ -261,6 +286,10 @@
 					"pass": 1,
 					"fail": 0
 				},
+				"Response body is not null": {
+					"pass": 1,
+					"fail": 0
+				},
 				"Currency code is correct": {
 					"pass": 1,
 					"fail": 0
@@ -275,18 +304,19 @@
 				}
 			},
 			"times": [
-				"1842"
+				"1451"
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
+					"Response body is not null": true,
 					"Currency code is correct": true,
 					"Store id is correct": true,
 					"Name of product is correct": true
 				}
 			],
-			"time": "1842",
-			"totalRequestTime": "1842",
+			"time": "1451",
+			"totalRequestTime": "1451",
 			"iterationResults": {}
 		},
 		{
@@ -303,24 +333,30 @@
 				}
 			},
 			"tests": {
-				"Successful POST request": true
+				"Successful POST request": true,
+				"Response body is not null": true
 			},
 			"testPassFailCounts": {
 				"Successful POST request": {
 					"pass": 1,
 					"fail": 0
+				},
+				"Response body is not null": {
+					"pass": 1,
+					"fail": 0
 				}
 			},
 			"times": [
-				"812"
+				"1310"
 			],
 			"allTests": [
 				{
-					"Successful POST request": true
+					"Successful POST request": true,
+					"Response body is not null": true
 				}
 			],
-			"time": "812",
-			"totalRequestTime": "812",
+			"time": "1310",
+			"totalRequestTime": "1310",
 			"iterationResults": {}
 		},
 		{
@@ -338,11 +374,16 @@
 			},
 			"tests": {
 				"Status code is 200": true,
+				"Response body is not null": true,
 				"Body contains cart quote": true,
 				"Product name is correct": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -356,23 +397,24 @@
 				}
 			},
 			"times": [
-				"1600"
+				"2873"
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
+					"Response body is not null": true,
 					"Body contains cart quote": true,
 					"Product name is correct": true
 				}
 			],
-			"time": "1600",
-			"totalRequestTime": "1600",
+			"time": "2873",
+			"totalRequestTime": "2873",
 			"iterationResults": {}
 		},
 		{
 			"name": "Retrieve cart - guest user",
 			"id": "34ab3524-7e80-4a7b-a9f0-a2168bb76b3c",
-			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/tIFECSVeWpFluMcKoU2BhDyaf5WijM8Y",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/2miW9prATnmdx6Un44hvNU1D77gD8yJ0",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -384,11 +426,16 @@
 			},
 			"tests": {
 				"Status code is 200": true,
+				"Response body is not null": true,
 				"Cart ID is correct": true,
 				"Body contains added product": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -402,30 +449,31 @@
 				}
 			},
 			"times": [
-				"1200"
+				"1754"
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
+					"Response body is not null": true,
 					"Cart ID is correct": true,
 					"Body contains added product": true
 				}
 			],
-			"time": "1200",
-			"totalRequestTime": "1200",
+			"time": "1754",
+			"totalRequestTime": "1754",
 			"iterationResults": {}
 		}
 	],
-	"totalPass": 20,
+	"totalPass": 28,
 	"totalFail": 0,
-	"totalTime": 41186,
+	"totalTime": 65238,
 	"lifecycle": "done",
 	"requests": [
 		{
 			"name": "Login",
 			"id": "96f3b463-0e56-4efb-93d2-f8d2f6b075d6",
 			"url": "https://int-sbx.dolce-gusto.com/rest/V1/integration/customer/token",
-			"time": "2019-05-23T13:44:05.113Z",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -436,6 +484,10 @@
 			},
 			"testPassFailCounts": {
 				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				}
@@ -445,7 +497,7 @@
 			"name": "Create empty cart - authenticated user",
 			"id": "2cdc4eb3-534c-4ee0-ab49-5b5e65c37e18",
 			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine",
-			"time": "2019-05-23T13:44:05.113Z",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -458,6 +510,10 @@
 				"Successful POST request": {
 					"pass": 1,
 					"fail": 0
+				},
+				"Response body is not null": {
+					"pass": 1,
+					"fail": 0
 				}
 			}
 		},
@@ -465,7 +521,7 @@
 			"name": "Add product to cart - authenticated user",
 			"id": "93e77c64-a9d2-487a-9da6-858071fab251",
 			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine/items",
-			"time": "2019-05-23T13:44:05.113Z",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -476,6 +532,10 @@
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -497,7 +557,7 @@
 			"name": "Retrieve cart - authenticated user",
 			"id": "85612eb7-02da-46c8-8620-d71f638037af",
 			"url": "https://int-sbx.dolce-gusto.com/rest/V1/carts/mine",
-			"time": "2019-05-23T13:44:05.113Z",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -508,6 +568,10 @@
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -525,7 +589,7 @@
 			"name": "Retrieve product data - any user",
 			"id": "591d9e87-3203-4750-bf54-5052a5ce5946",
 			"url": "https://int-sbx.dolce-gusto.com/rest/V1/products-render-info?storeId=1&currencyCode=USD&searchCriteria[filterGroups][0][filters][0][conditionType]=in&searchCriteria[filterGroups][0][filters][0][field]=name&searchCriteria[filterGroups][0][filters][0][value]=Simple Product Machine",
-			"time": "2019-05-23T13:44:05.113Z",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -536,6 +600,10 @@
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -557,7 +625,7 @@
 			"name": "Create cart - guest user",
 			"id": "e0b35a33-669c-4e54-afbe-57d2f4a04cef",
 			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts",
-			"time": "2019-05-23T13:44:05.113Z",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -570,6 +638,10 @@
 				"Successful POST request": {
 					"pass": 1,
 					"fail": 0
+				},
+				"Response body is not null": {
+					"pass": 1,
+					"fail": 0
 				}
 			}
 		},
@@ -577,7 +649,7 @@
 			"name": "Add product to cart - guest user",
 			"id": "233354c2-0c31-4d36-815f-54eaab4bcfb9",
 			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/cf89TsPWh8NyuCZk3LDIB3gKifN3iB5W/items",
-			"time": "2019-05-23T13:44:05.113Z",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -588,6 +660,10 @@
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -604,8 +680,8 @@
 		{
 			"name": "Retrieve cart - guest user",
 			"id": "34ab3524-7e80-4a7b-a9f0-a2168bb76b3c",
-			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/tIFECSVeWpFluMcKoU2BhDyaf5WijM8Y",
-			"time": "2019-05-23T13:44:05.113Z",
+			"url": "https://int-sbx.dolce-gusto.com/rest/V1/guest-carts/2miW9prATnmdx6Un44hvNU1D77gD8yJ0",
+			"time": "2019-05-24T08:49:17.644Z",
 			"responseCode": {
 				"code": 200,
 				"name": "OK",
@@ -616,6 +692,10 @@
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is not null": {
 					"pass": 1,
 					"fail": 0
 				},
